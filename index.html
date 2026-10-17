@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faith Amanze | AI &amp; ML Engineer</title>
+  <meta name="description" content="Faith Amanze: Applied AI/ML engineer with a cloud security background. LLM agents, RAG and security automation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0c12;
+      --panel: #14151f;
+      --line: #262838;
+      --text: #f3f4f8;
+      --muted: #9a9db2;
+      --accent: #8b7bff;
+      --accent-2: #5ee3c4;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "Inter", system-ui, Arial, sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid var(--accent-2); outline-offset: 2px;
+    }
+    h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
+    .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Navbar */
+    header { position: sticky; top: 0; z-index: 10; background: rgba(11,12,18,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; padding: 1rem 0; }
+    .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 1.75rem; margin: 0; padding: 0; flex-wrap: wrap; align-items: center; }
+    nav ul a { text-decoration: none; color: var(--muted); font-size: .95rem; }
+    nav ul a:hover { color: var(--text); }
+    nav ul a.cta { color: #0b0c12; background: var(--text); padding: .45rem 1rem; border-radius: 999px; font-weight: 600; }
+
+    section { padding: 5.5rem 0; border-bottom: 1px solid var(--line); }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 1.25rem; }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 40rem; }
+    .tag { display: inline-block; font-size: .85rem; color: var(--accent-2); border: 1px solid var(--line); background: var(--panel); padding: .3rem .8rem; border-radius: 999px; margin-bottom: 1.5rem; }
+
+    .button { display: inline-block; padding: .8rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+    .primary { background: var(--accent); color: #0b0c12; }
+    .primary:hover { background: #a89cff; }
+    .ghost { border-color: var(--line); color: var(--text); background: transparent; }
+    .ghost:hover { border-color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+    /* Home */
+    #home { padding-top: 6rem; background: radial-gradient(60rem 28rem at 70% -10%, rgba(139,123,255,.22), transparent 70%); }
+    #home h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); font-weight: 800; max-width: 16ch; margin-bottom: 1.5rem; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin-top: 3.5rem; }
+    .stat { border-top: 1px solid var(--line); padding-top: 1rem; }
+    .stat strong { display: block; font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; }
+    .stat span { color: var(--muted); font-size: .9rem; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start; }
+    figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 1rem; }
+    video { width: 100%; border-radius: 10px; background: #000; }
+    figcaption { color: var(--muted); font-size: .9rem; margin: .6rem 0; }
+    audio { width: 100%; }
+    .skills { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+    .skills li { border: 1px solid var(--line); background: var(--panel); padding: .3rem .85rem; border-radius: 999px; font-size: .9rem; }
+
+    /* Work */
+    .projects { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+    article.project { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 2rem; }
+    article.project:hover { border-color: var(--accent); }
+    .project h3 { font-size: 1.6rem; margin: .4rem 0 .8rem; }
+    .project p { color: var(--muted); max-width: 46rem; }
+    .kicker { color: var(--accent-2); font-size: .85rem; font-weight: 600; }
+    .project-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .project-stats div { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 1rem; }
+    .project-stats strong { display: block; font-size: 1.7rem; font-weight: 800; }
+    .project-stats span { color: var(--muted); font-size: .85rem; }
+    .more-title { font-size: 1.4rem; margin: 3.5rem 0 0; }
+    .projects.small { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); margin-top: 1.25rem; }
+    .projects.small .project { padding: 1.5rem; }
+    .projects.small .project h3 { font-size: 1.2rem; }
+    .projects.small .project p { font-size: .92rem; }
+    .links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .links a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+
+    /* Resume */
+    .table-wrap { overflow-x: auto; margin: 2rem 0; }
+    table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); }
+    caption { text-align: left; font-weight: 700; font-size: 1.2rem; padding-bottom: .75rem; }
+    th, td { text-align: left; padding: .9rem 1.1rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: .9rem; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .cols h3 { font-size: 1.2rem; margin-bottom: .75rem; }
+    .cols ul, .cols ol { color: var(--muted); padding-left: 1.2rem; margin: 0; }
+    .cols li { margin-bottom: .4rem; }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: start; }
+    form { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 2rem; }
+    label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: .3rem; }
+    input[type="text"], input[type="email"], select, textarea {
+      width: 100%; margin-bottom: 1.25rem; padding: .7rem .85rem; font: inherit; color: var(--text);
+      background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+    }
+    fieldset { border: none; padding: 0; margin: 0 0 1.25rem; }
+    legend { font-weight: 600; font-size: .9rem; margin-bottom: .4rem; }
+    .radio-row label { display: inline-block; font-weight: 400; margin-right: 1.25rem; }
+
+    /* Footer */
+    footer { padding: 2.5rem 0; color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+    footer ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; flex-wrap: wrap; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 760px) {
+      .about-grid, .contact-grid, .cols { grid-template-columns: 1fr; }
+      nav ul { gap: 1rem; }
+      section { padding: 4rem 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="logo" href="#home">faith<span>.</span></a>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a class="cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="wrap">
+        <p class="tag">Applied AI/ML Engineer Â· LLM Agents, RAG &amp; Security Automation</p>
+        <h1>I build AI that cuts through the noise.</h1>
+        <p class="lead">I'm Faith Amanze. I build machine learning and LLM-powered tools for security alerts and search data, so people can trust what lands in front of them.</p>
+        <div class="actions">
+          <a class="button primary" href="#work">See my work</a>
+          <a class="button ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>4 of 1,096</strong><span>sign-in alerts actually worth escalating</span></div>
+          <div class="stat"><strong>74.0%</strong><span>Precision@50 ranking 30,000 SEO pages</span></div>
+          <div class="stat"><strong>4.83 / 5</strong><span>CSAT supporting 1,000+ clients in 90 countries</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <h2>About me</h2>
+          <p class="lead">By day I investigate security incidents across Microsoft 365 (Defender, Purview and Entra ID). By night I build ML models that turn messy data into decisions worth acting on.</p>
+          <p class="lead">I built my alert triage tool because I was the one reviewing the same false-positive alerts by hand. It's the tool I wanted on my own queue.</p>
+          <ul class="skills" aria-label="Skills">
+            <li>Python</li>
+            <li>scikit-learn</li>
+            <li>LLM agents</li>
+            <li>Embedding clustering</li>
+            <li>Amazon Bedrock</li>
+            <li>RAG</li>
+            <li>Cloud security</li>
+            <li>Threat detection</li>
+          </ul>
+        </div>
+        <figure>
+          <!-- Keep index.html, intro.mp4 and intro.jpg in the same folder -->
+          <video controls preload="metadata">
+            <source src="intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Watch: a short intro to what I do in AI, security and ML.</figcaption>
+          
+          
+        </figure>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="wrap">
+        <h2>Selected work</h2>
+        <p class="lead">Featured projects from security and search, plus AI agent builds on AWS.</p>
+
+        <div class="projects">
+          <article class="project">
+            <p class="kicker">Security Â· LLM agent</p>
+            <h3>FP-Triage</h3>
+            <p>An LLM-powered tool that auto-dismisses known false-positive security alerts. It asks one question: has this exact device signed in for this exact user before? Anything unfamiliar goes to a human, and low-confidence dismissals are sent back to escalate.</p>
+            <div class="project-stats">
+              <div><strong>99.6%</strong><span>of 1,070 naive flags correctly auto-dismissed</span></div>
+              <div><strong>1,096 â†’ 4</strong><span>first-seen devices found offline</span></div>
+              <div><strong>7 / 15</strong><span>dismissed / escalated in a live 22-event run</span></div>
+            </div>
+            <div class="links">
+              <a href="https://github.com/faith-amanze/fp-triage" target="_blank" rel="noopener">View the repo</a>
+              <a href="https://faith-amanze.netlify.app" target="_blank" rel="noopener">See the live demo</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <p class="kicker">Machine learning Â· SEO</p>
+            <h3>Content Refresh Prioritization</h3>
+            <p>My FlyRank internship capstone: ranking which of 30,000 underperforming SEO pages deserve a content team's limited review time. I used a client-grouped holdout split to avoid leakage, and the paper reports the model's failure modes openly.</p>
+            <div class="project-stats">
+              <div><strong>74.0%</strong><span>Precision@50, logistic regression</span></div>
+              <div><strong>48.0%</strong><span>Precision@50, hand-written baseline</span></div>
+              <div><strong>32</strong><span>client accounts in the data</span></div>
+            </div>
+            <div class="links">
+              <a href="https://faith-amanze.github.io/content-refresh-prioritization/" target="_blank" rel="noopener">Read the paper</a>
+              <a href="https://github.com/faith-amanze/content-refresh-prioritization" target="_blank" rel="noopener">View the repo</a>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="more-title">More projects</h3>
+        <div class="projects small">
+          <article class="project">
+            <p class="kicker">Multi-agent Â· AWS</p>
+            <h3>NovaMart Support System</h3>
+            <p>Udacity AWS capstone: an orchestrator agent with retrieval-augmented answers from three Bedrock Knowledge Bases on S3 Vectors, deployed on AgentCore with a Guardrail and memory. It passed 120 of 120 automated tests.</p>
+          </article>
+          <article class="project">
+            <p class="kicker">Chatbot Â· Amazon Bedrock</p>
+            <h3>Support-Flow</h3>
+            <p>A Bedrock Flow that routes messages to three paths and answers from a Knowledge Base. LLM-as-judge evaluation raised average correctness from 0.71 to 1.00 across 7 test cases.</p>
+          </article>
+          <article class="project">
+            <p class="kicker">Fine-tuning Â· Hackathon</p>
+            <h3>Nigerian Languages Topic Generation</h3>
+            <p>DSN Bootcamp Hackathon 2026: fine-tuned Qwen2.5-0.5B-Instruct with LoRA for topic classification and headline generation in Hausa, Igbo, Yoruba and Nigerian Pidgin.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="wrap">
+        <h2>Resume</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Experience and education</caption>
+            <thead>
+              <tr><th scope="col">When</th><th scope="col">Role</th><th scope="col">Where</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2026</td><td>Machine Learning Intern (Remote)</td><td>FlyRank AI Internship Program</td></tr>
+              <tr><td>May 2024 â€“ July 2026</td><td>Technical Support Engineer, Cloud Security &amp; M365</td><td>Tekexperts (TeKnowledge)</td></tr>
+              <tr><td>Feb 2023 â€“ Apr 2024</td><td>IT Support</td><td>Elitesgen</td></tr>
+              <tr><td>2016</td><td>B.Eng, Electrical Engineering</td><td>University of Nigeria, Nsukka</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cols">
+          <div>
+            <h3>Highlights</h3>
+            <ul>
+              <li>Supported 1,000+ clients across 90 countries with 95%+ SLA compliance</li>
+              <li>Contained compromised accounts and investigated phishing in Exchange Online</li>
+              <li>Automated admin work with PowerShell, tracked in Dynamics 365</li>
+              <li>Selected for FlyRank AI's Claude Partner Network cohort</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Certifications</h3>
+            <ol>
+              <li>AWS AI &amp; ML Scholars: Future AWS Agent Engineer (Udacity)</li>
+              <li>Azure Fundamentals (AZ-900) and Microsoft security fundamentals</li>
+              <li>Google Cybersecurity Professional Certificate</li>
+              <li>Cisco CyberOps Associate and ISO/IEC 27001 Associate</li>
+            </ol>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="https://faith-amanze.netlify.app/faith-amanze-cv.pdf" target="_blank" rel="noopener">Download my CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <h2>Send me your queue.</h2>
+          <p class="lead">Have a noisy alert queue, a messy dataset, or a role that fits? Send a message and I'll reply.</p>
+          <p class="lead"><a href="mailto:faith.amanze@gmail.com">faith.amanze@gmail.com</a></p>
+        </div>
+        <form action="#" method="post">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="topic">What is this about?</label>
+          <select id="topic" name="topic">
+            <option value="job">A job or internship</option>
+            <option value="project">A project</option>
+            <option value="security">Security alert triage</option>
+            <option value="hello">Just saying hello</option>
+          </select>
+
+          <fieldset class="radio-row">
+            <legend>How should I reply?</legend>
+            <label><input type="radio" name="reply" value="email" checked> Email</label>
+            <label><input type="radio" name="reply" value="call"> Book a call</label>
+          </fieldset>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button class="button primary" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Faith Amanze</p>
+      <nav aria-label="Footer navigation">
+        <ul>
+          <li><a href="#home">Back to top</a></li>
+          <li><a href="https://github.com/faith-amanze" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/faith-amanze" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://faith-amanze.netlify.app" target="_blank" rel="noopener">Netlify site</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
+
